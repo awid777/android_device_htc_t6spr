@@ -23,12 +23,10 @@
 #
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := 
-device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, 
-$(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
@@ -42,3 +40,4 @@ PRODUCT_DEVICE := t6spr
 PRODUCT_BRAND := htc
 PRODUCT_MANUFACTURER := htc
 PRODUCT_MODEL := One Max
+
