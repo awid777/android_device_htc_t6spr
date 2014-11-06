@@ -21,8 +21,11 @@
 # lines, full and maguro, hence its name.
 #
 
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from t6 device
 $(call inherit-product, device/htc/t6spr/device.mk)
@@ -33,3 +36,6 @@ PRODUCT_DEVICE := t6spr
 PRODUCT_BRAND := htc
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_MODEL := One Max
+
+PRODUCT_PACKAGES += \
+    Launcher3
